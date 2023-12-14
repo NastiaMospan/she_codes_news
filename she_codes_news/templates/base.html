@@ -9,21 +9,41 @@
         <meta name="author" content="Anastasiia">
         <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-        {% block stylesheets %}{% endblock %}
+       
+        <ul class="sidebar-nav">
+
+            {% block stylesheets %}
+            {% endblock %}
+       
     </head>
 
     <body>
         <header>
             <div id="header-text">
                 <a id="header-link" href="{% url 'news:index' %}">
-                    <h1>She {Codes} News</h1>
+                    <h1 id="title">She {Codes News}</h1>
+                
                 </a>
+               
             </div>
             <!-- include nav here -->
             {% include './nav.html' %}
+            
         </header>
 
-        <!-- content blocks here -->
-        {% block content %}{% endblock %}
+<!--       
+         Authentification  -->
+         <!-- <ul class="sidebar-nav"> 
+           {% if user.is_authenticated %} 
+             <li>User: {{ user.username }}</li>
+             <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
+
+             
+           {% else %}
+             <li><a href="{% url 'login' %}" > Login to write a sory</a></li>
+             <!-- <li><a href="/users/login/">Login</a></li>   -->
+           <!-- {% endif %}  -->
+          <!-- </ul> -->
+        {% block content %}{% endblock %} 
     </body>
 </html>

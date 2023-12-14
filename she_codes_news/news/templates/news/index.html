@@ -7,9 +7,23 @@
 
 {% block content %}
 <br>
-<a href="{% url 'news:newStory' %}">Write New Story</a>
-<h2>Latest News</h2>
+<!-- <a href="{% url 'news:newStory' %}">Write New Story</a>  -->
+<!-- Filter by Author -->
 
+{% comment %}
+ <h2>Filter by Author 1</h2>
+<form method="GET" action="">
+    <select name="author" onchange="this.form.submit()">
+        <option value="">Select Author</option>
+        {% for user in users %}
+            <option value="{{ user.username }}">{{ user.username }}</option>
+        {% endfor %}
+    </select>
+</form> 
+{% endcomment %}
+
+<h2>Latest News</h2>
+ 
     <div id="latest-stories">
         {% if latest_stories %}
             {% for story in latest_stories %}
@@ -19,9 +33,21 @@
             <p>No stories are available.</p>
         {% endif %}
     </div>
-
+    <br>
+    
+    <!-- Filter by author -->
+    <h2>Filter by Author</h2>
+    <form method="get" action="{% url 'news:index' %}">
+        <label for="author">Select Author</label>
+        <select name="author">
+            {% for user in users %}
+            <option value="{{user.username}}">{{user.username}}</option>
+            {% endfor %}
+            </select>
+        <input type="submit" />
+    </form> 
     <div id="all-stories">
-        {% if latest_stories %}
+        {% if all_stories %}
             {% for story in all_stories %}
                {% include "./storyCard.html" with story=story %}
             {% endfor %}
@@ -30,3 +56,5 @@
         {% endif %}
     </div>
 {% endblock %}
+
+
