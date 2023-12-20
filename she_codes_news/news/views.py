@@ -94,7 +94,7 @@ class AddCommentView(generic.CreateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = self.form_class()  # Pass an instance of the form to the context
+        context['form'] = self.form_class()  
         return context
 
 
