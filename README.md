@@ -13,7 +13,7 @@ The idea is to have a news web site where user can create his own account, and w
 
 
 ## Database Schema
-![ {{ My ERD }} ]( {{ ./she_codes_news/models.png }} )
+![ {{ My ERD }} ]( {{ ./users/models.png }} )
 
 ## Video link https://youtu.be/QAsaYDzLJJ4?si=yDijKf5nLymkKWg5
 
